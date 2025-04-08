@@ -1,31 +1,9 @@
-"use client"
+import React from 'react'
+import { BlogList } from '@/interface/blog'
 import { Card, CardContent } from '@mui/material'
-import { useSearchParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
 
-const BlogDetail = () => {
-    const [detailData, setDetailData] = useState<any>(null)
-    const searchParams = useSearchParams()
-    const detailId: string = searchParams.get("id") as string
+const BlogDetail: React.FC<{ detailData: BlogList }> = ({ detailData }) => {
 
-    const callDetailApi = async () => {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}posts/${detailId}`)
-        if (!res.ok) {
-            throw new Error('Failed to fetch data')
-        }
-        return res.json()
-    }
-
-
-    useEffect(() => {
-
-        const fetchData = async () => {
-            let data = await callDetailApi()
-            setDetailData(data)
-        }
-        fetchData()
-
-    }, [])
 
 
     return (
