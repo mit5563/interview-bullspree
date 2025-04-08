@@ -2,7 +2,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
-import { Button, Card, CardContent, CardHeader } from '@mui/material';
+import { Button, Card, CardContent, CardHeader, Typography } from '@mui/material';
 import Link from 'next/link';
 
 const page = () => {
@@ -27,6 +27,9 @@ const page = () => {
     return (
         <div className='max-w-7xl mx-auto py-10'>
 
+            <Typography variant='h3' className='text-center font-bold py-5 underline'>
+                Welcome to the blogs
+            </Typography>
             <Grid container spacing={2}>
                 {posts.map((post) => (
                     <Grid key={post.id} size={4}>
